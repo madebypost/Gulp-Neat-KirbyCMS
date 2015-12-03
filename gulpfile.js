@@ -107,12 +107,16 @@ gulp.task('default',  function () {
 });
 
 gulp.task('php', function() {
-    php.server({ base: 'app', port: 8010, keepalive: true});
+    php.server({ 
+        base: 'app',
+        port: 8000,
+        keepalive: true
+    });
 });
 
 gulp.task('serve', ['php','styles', 'scripts'], function () {
     browserSync({
-        proxy: '127.0.0.1:8010',
+        proxy: 'localhost:8000',
         port: 8080,
         open: true,
         notify: false
